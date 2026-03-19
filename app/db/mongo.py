@@ -12,3 +12,6 @@ db = client["mydatabase"]
 
 #tabla
 users_collection = db["users"]
+
+#tasks.py
+tasks_collection = db["tasks"]

@@ -1,11 +1,12 @@
 from fastapi import FastAPI
-from app.routes import auth, test
+from app.routes import auth, test, tasks
 
 app = FastAPI()
 
 # Routers
 app.include_router(auth.router)
 app.include_router(test.router)
+app.include_router(tasks.router)
 
 
 @app.get("/health")
