@@ -4,14 +4,14 @@ Este proyecto lo utilice para repasar el flujo de OAuth2, esta todo lo demás de
 
 ### 🚀 Características Principales
 
-* **Seguridad de Grado Industrial:** Implementación de hashing con **Bcrypt** (comprendiendo la transición hacia estándares como Argon2) y flujo completo de **OAuth2 con JWT**.
+* **Seguridad Robusta:** Implementación de hashing con **Bcrypt** (comprendiendo la transición hacia estándares como Argon2) y flujo completo de **OAuth2 con JWT**.
 * **Aislamiento de Datos (Multitenencia):** Lógica de filtrado a nivel de base de datos para asegurar que cada usuario acceda exclusivamente a sus propios registros.
 * **Persistencia NoSQL:** Modelado de documentos dinámicos en **MongoDB**, optimizando la velocidad de lectura y escritura de tareas.
 * **Gestión de Sesiones:** Generación de tokens con tiempo de expiración configurado para proteger rutas críticas.
 
 ### 🛠️ Stack
 
-* **Framework:** FastAPI (Asincrónico)
+* **Framework:** FastAPI (asincrónico con async/await)
 * **Database:** MongoDB
 * **Seguridad:** Python-Jose JWT, Bcrypt
 * **Validación:** Pydantic (Modelos de entrada/salida)
