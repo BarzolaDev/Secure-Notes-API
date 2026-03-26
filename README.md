@@ -1,19 +1,20 @@
-# To-Do List API (Authentication & Multi-user)
+🔐 Secure-Notes-API (FastAPI + MongoDB)
+API de gestión de notas y tareas con arquitectura de seguridad robusta. Este proyecto fue diseñado para dominar el flujo de autenticación asincrónica y la persistencia en bases de datos NoSQL, garantizando el aislamiento total de datos entre usuarios.
 
-Hice este proyecto para aprender el manejo de bases de datos NoSQL con **MongoDB** y profundizar en el flujo de **OAuth2**.
+🚀 Características Principales
+Seguridad de Grado Industrial: Implementación de hashing avanzado con Bcrypt (Aunque el standard es Argon2 el proceso es el mismo) y flujo completo de OAuth2 con JWT.
+Aislamiento de Datos (Multitenencia): Lógica de filtrado a nivel de base de datos para asegurar que cada usuario acceda exclusivamente a sus propios registros.
+Persistencia NoSQL: Modelado de documentos dinámicos en MongoDB, optimizando la velocidad de lectura y escritura de tareas.
+Gestión de Sesiones: Generación de tokens con tiempo de expiración configurado para proteger rutas críticas.
 
-## 🚀 Features
-- **Sistema de Usuarios:** Registro y Login con hashing de contraseñas (BCrypt).
-- **Seguridad:** Autenticación basada en JWT (OAuth2).
-- **Aislamiento de Datos:** Cada usuario es dueño de sus registros; las listas son privadas y persistentes.
-- **CRUD Completo:** Gestión total de tareas y listas por cada perfil.
+🛠️ Stack
+Framework: FastAPI 
+Database: MongoDB 
+Seguridad: Python-Jose JWT, Bcrypt 
+Validación: Pydantic (Modelos de entrada/salida)
 
-## 🛠️ Tech Stack
-- **Backend:** Python (FastAPI)
-- **Database:** MongoDB
-- **Security:** JWT, OAuth2, BCrypt
-
-## 🔐 Flow & Logic
-- Las contraseñas se hashean antes de guardarse en la DB.
-- Los tokens JWT se generan al login y se validan en cada ruta protegida.
-- Implementación de lógica para que un usuario solo pueda interactuar con sus propios documentos.
+📡 Endpoints Clave
+POST /auth/register → Registro de usuarios con validación de credenciales únicas.
+POST /auth/login → Intercambio de credenciales por Token de Acceso (JWT).
+GET /tasks → Recupera únicamente las tareas pertenecientes al usuario autenticado.
+POST /tasks → Creación de registros vinculados automáticamente al ID del autor.
