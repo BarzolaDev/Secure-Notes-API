@@ -1,24 +1,16 @@
-# 🔐 Secure-Notes-API (FastAPI + MongoDB)
+#🔐 Secure Notes API
+Una infraestructura de backend diseñada bajo el paradigma Security-First, utilizando FastAPI y MongoDB. Este proyecto implementa un sistema robusto de gestión de información sensible con aislamiento total de datos por usuario.
 
-Este proyecto lo utilice para repasar el flujo de OAuth2, esta todo lo demás detallado. 
+#🎯 High-Level Features
+Autenticación Stateless (JWT): Implementación completa del flujo OAuth2 con Bearer Tokens. Gestión de sesiones sin estado, permitiendo una escalabilidad horizontal del backend.
+Criptografía y Hashing: Protección de credenciales mediante Bcrypt con factor de costo dinámico, garantizando que los datos sensibles nunca se almacenen en texto plano.
+Aislamiento Multitenant: Arquitectura lógica que asegura la privacidad de los datos. Cada consulta a la base de datos está vinculada intrínsecamente al user_id extraído del token, eliminando riesgos de filtración cruzada.
+Performance Asincrónica: Aprovechamiento total del event loop de Python con motor (driver asíncrono de MongoDB) para manejar múltiples peticiones concurrentes sin bloqueos de I/O.
 
-### 🚀 Características Principales
+Esquemas de Datos Rigurosos: Validación y sanitización de payloads mediante Pydantic, asegurando que solo los datos estructurados correctamente ingresen a la capa de persistencia.
 
-* **Seguridad Robusta:** Implementación de hashing con **Bcrypt** (comprendiendo la transición hacia estándares como Argon2) y flujo completo de **OAuth2 con JWT**.
-* **Aislamiento de Datos (Multitenencia):** Lógica de filtrado a nivel de base de datos para asegurar que cada usuario acceda exclusivamente a sus propios registros.
-* **Persistencia NoSQL:** Modelado de documentos dinámicos en **MongoDB**, optimizando la velocidad de lectura y escritura de tareas.
-* **Gestión de Sesiones:** Generación de tokens con tiempo de expiración configurado para proteger rutas críticas.
-
-### 🛠️ Stack
-
-* **Framework:** FastAPI (asincrónico con async/await)
-* **Database:** MongoDB
-* **Seguridad:** Python-Jose JWT, Bcrypt
-* **Validación:** Pydantic (Modelos de entrada/salida)
-
-### 📡 Endpoints Clave
-
-| `POST` | `/auth/register` | Register 
-| `POST` | `/auth/login` |  Validamos LOGIN 
-| `GET` | `/tasks` | Tareas únicas del usuario gracias a jwt
-| `POST` | `/tasks` | Creamos las tareas
+#🛠️ Tech Stack
+Core: FastAPI (Asynchronous Python)
+NoSQL Storage: MongoDB (Atlas / Community)
+Security: Python-Jose (JWT), Passlib (Bcrypt), OAuth2PasswordBearer
+Dev Ops: Pydantic (Environments & Schemas)
